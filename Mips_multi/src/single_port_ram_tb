@@ -1,0 +1,34 @@
+module single_port_ram_tb;
+	reg clk_tb = 0;
+	reg 	   we;
+	reg [31:0] data;
+	reg [31:0] addr;
+	wire [31:0] q;
+ 
+single_port_ram DUV (.we(we), .data(data), .addr(addr), .q(q), .clk_tb(0));
+initial // Clock generator
+  begin
+    forever #2 clk_tb = ~clk_tb;
+  end
+/*
+initial begin
+	#0  Address_i_tb = 0;
+	#50 Address_i_tb = 1;
+	#50 Address_i_tb = 2;
+	#50 Address_i_tb = 3;
+	#50 Address_i_tb = 4;
+	#50 Address_i_tb = 5;
+	#50 Address_i_tb = 6;
+	#50 Address_i_tb = 7;
+end*/
+initial begin
+	#0  Address_i_tb = 32'h10010000; 
+	#50 Address_i_tb = 32'h10010004;
+	#50 Address_i_tb = 32'h10010008;
+	#50 Address_i_tb = 32'h1001000c;
+	#50 Address_i_tb = 32'h10010010;
+	#50 Address_i_tb = 32'h10010014;
+	#50 Address_i_tb = 32'h10010018;
+	#50 Address_i_tb = 32'h1001001c;
+end
+endmodule 

@@ -1,0 +1,8 @@
+module register_tb;
+	input clk;
+	input data;
+	output Q;
+
+	flipflopd F0(.Q(Q), .clk(clk), .data(data));
+
+endmodule  
